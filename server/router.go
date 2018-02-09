@@ -16,5 +16,5 @@ func router(e *echo.Echo) {
 
 	e.GET("/post", postRoute.Get)
 
-	e.Static("/", "static/build")
+	//e.Static("/", "static/build")
 }

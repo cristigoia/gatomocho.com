@@ -13,6 +13,11 @@ func Config() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 
+	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
+		Root:  "static/build",
+		HTML5: true,
+	}))
+
 	router(e)
 
 	log.Println("> server running on port 3210")
