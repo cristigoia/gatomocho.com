@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+:root {
+    --base: #eeeeee;
+    --card-base: #ffffff;
+    --brand-color: #d77bba;
+    --primary-color: #ff6347;
+    --text-color: #333333;
+}
+
+body {
+    background-color: var(--base, #eeeeee);
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: 4rem;
+}
+
+body, a, h1 {
+    color: var(--text-color);
+}
+
+a {
+    transition: all 0.2s;
+}
+
+a:focus,
+a:hover {
+    color: var(--brand-color);
+}
+
+.app {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+.app--nav {
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+}
+
+.app--header h1 {
+    font-size: 2rem;
+}
+
+.app--nav img {
+    width: 100%;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+    list-style: none;
+}
+
+nav li a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+nav li a.active:before {
+    content: '> ';
+}
+
+nav li a.active {
+    color: var(--brand-color);
+}
+
+.app--content {
+    display: inline-block;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    width: calc(80% - 4rem);
+}
+
+ul.card-container {
+    margin: 0;
+    padding: 0;
+}
+
+li.card {
+    background-color: var(--card-base, #ffffff);
+    font-size: 1.5rem;
+    list-style: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+li.card a {
+    width: calc(100% - 4rem);
+    height: 100%;
+    display: block;
+    padding: 2rem 2rem;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+@media (max-width: 961px) {
+    .app--nav,
+    .app--content {
+        width: 100%;
+    }
+
+    .app--nav img {
+        width: unset;
+    }
+
+    .app--content {
+        padding-left: 1rem;
+    }
+}
+
+.post-single {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.post-single h1 {
+    font-size: 2.5rem;
+}
+
+.post-single img {
+    font-size: 2.5rem;
+    max-width: 100%;
+}
+
+.post-single p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-single a:hover {
+    background-color: var(--brand-color);
+    color: white;
+}
