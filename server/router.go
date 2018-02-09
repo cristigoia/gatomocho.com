@@ -7,14 +7,14 @@ import (
 )
 
 func router(e *echo.Echo) {
+	apiV1 := e.Group("/api")
+
 	meRoute := routes.NewMeRoute()
 
-	e.GET("/me", meRoute.Get)
+	apiV1.GET("/me", meRoute.Get)
 
 	postsRepository := posts.NewPostsRepository()
 	postRoute := routes.NewPostRoute(postsRepository)
 
-	e.GET("/post", postRoute.Get)
-
-	//e.Static("/", "static/build")
+	apiV1.GET("/posts", postRoute.Get)
 }

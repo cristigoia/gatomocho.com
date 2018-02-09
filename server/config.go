@@ -13,6 +13,8 @@ func Config() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 
+	e.Use(middleware.Static("uploads"))
+
 	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
 		Root:  "static/build",
 		HTML5: true,
