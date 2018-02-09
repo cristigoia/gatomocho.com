@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Running a Go binary as a systemd service on Ubuntu 16.04
-date:   2017-02-09T12:00:00Z
+date:   2018-02-09T12:00:00Z
 ---
 
 This is a quick guide to run a go binary as a systemd service (daemon) on Ubuntu 16.04, which is the latest LTS version available.
