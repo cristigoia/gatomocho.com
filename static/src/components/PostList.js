@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../reducers/post';
+import utils from '../lib/utils';
 
-const PostItem = ({ id, title }) => (
+const PostItem = ({ id, title, date }) => (
     <li className="card">
-        <Link to={ '/post/' + id }>{ title }</Link>
+        <Link to={ '/post/' + id }>
+            <p>{ date }</p>
+            { title }
+        </Link>
     </li>
 );
 
@@ -14,7 +18,7 @@ class PostList extends Component {
         this.props.fetchPosts();
     }
 
-    comparePostDates(postA, postB) {
+    static comparePostDates(postA, postB) {
         const dateA = new Date(postA.meta.date);
         const dateB = new Date(postB.meta.date);
 
@@ -22,7 +26,7 @@ class PostList extends Component {
     }
 
     render() {
-        const sortedPosts = this.props.posts.sort(this.comparePostDates);
+        const sortedPosts = this.props.posts.sort(PostList.comparePostDates);
 
         return (
             <ul className="card-container">
@@ -31,6 +35,7 @@ class PostList extends Component {
                         key={ post.id }
                         title={ post.meta.title }
                         content={ post.body }
+                        date={ utils.dateFormat(post.meta.date) }
                         { ...post }
                     />)
                 }

@@ -56,9 +56,7 @@ Now, you should be able to enable the service, start it, then monitor the logs b
 
 ```bash
 $ sudo systemctl enable gatomocho.service
-
 $ sudo systemctl start gatomocho
-
 $ sudo journalctl -f -u gatomocho
 ```
 

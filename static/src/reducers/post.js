@@ -1,4 +1,4 @@
-import { getPosts } from "../lib/postServices";
+import { getPosts } from "../lib/apiServices";
 
 const initState = {
     posts: []

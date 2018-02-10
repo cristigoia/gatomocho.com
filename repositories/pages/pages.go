@@ -1,4 +1,4 @@
-package posts
+package pages
 
 import (
 	"path/filepath"
@@ -7,21 +7,21 @@ import (
 	"github.com/tonymtz/go-blog/data"
 )
 
-type PostsRepository interface {
+type PagesRepository interface {
 	GetAll() []*models.Document
 }
 
 type postsRepository struct{}
 
 func (this *postsRepository) GetAll() (posts []*models.Document) {
-	files, err := filepath.Glob("data/posts/*.md")
+	files, err := filepath.Glob("data/pages/*.md")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for file := range files {
-		output, err := data.DocumentFromPost(files[file])
+		output, err := data.DocumentFromPage(files[file])
 
 		if err != nil {
 			log.Fatal(err)
@@ -33,6 +33,6 @@ func (this *postsRepository) GetAll() (posts []*models.Document) {
 	return posts
 }
 
-func NewPostsRepository() PostsRepository {
+func NewPagesRepository() PagesRepository {
 	return &postsRepository{}
 }

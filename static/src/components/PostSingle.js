@@ -12,10 +12,10 @@ class PostSingle extends Component {
             const post = this.props.post[ 0 ];
 
             return (
-                <div className="post-single">
+                <div className="document-single">
                     <h1>{ post.meta.title }</h1>
 
-                    <div dangerouslySetInnerHTML={ { __html: post.body } }></div>
+                    <div dangerouslySetInnerHTML={ { __html: post.body } }/>
                 </div>
             );
         } else {
